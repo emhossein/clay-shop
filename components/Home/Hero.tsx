@@ -6,22 +6,8 @@ import {
   Text,
   Title,
 } from '@mantine/core'
-import Image from 'next/image'
 import React from 'react'
-
-const useStyles = createStyles((theme) => ({
-  flexRow: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  flexCol: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-}))
+import useStyles from '../../styles/classes'
 
 function Hero() {
   const { classes } = useStyles()
@@ -40,7 +26,11 @@ function Hero() {
         size="lg"
         px={0}
         className={classes.flexCol}
-        sx={{ height: '100%', alignItems: 'flex-start' }}
+        sx={{
+          height: '100%',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+        }}
       >
         <Title
           mb={16}

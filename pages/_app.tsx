@@ -17,8 +17,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       theme={{
         fontFamily: 'Mulish',
         colorScheme: 'light',
+        black: '#1b2437',
         colors: {
           pink: ['#EDA3B5'],
+          gray: [
+            '#f6f6f6',
+            '#efeff4',
+            '#e5e5ea',
+            '#d1d1d6',
+            '#c7c7cc',
+            '#8e8e93',
+            '#48484a',
+          ],
         },
         fontSizes: {
           xs: 10,

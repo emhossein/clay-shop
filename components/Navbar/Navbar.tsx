@@ -1,15 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import {
-  Box,
-  Container,
-  createStyles,
-  Header,
-  Sx,
-  Text,
-  Title,
-} from '@mantine/core'
+import { Box, Container, createStyles, Header, Sx, Title } from '@mantine/core'
 import { useWindowScroll } from '@mantine/hooks'
 
 import {
@@ -20,8 +12,11 @@ import {
   Search,
   Cart,
 } from '../Icons/Icons'
+import { navbarLine } from '../../utils/navbarLine'
+import useStyles from '../../styles/classes'
+import Logo from '../UI/Logo'
 
-const useStyles = createStyles((theme) => ({
+const useStyle = createStyles((theme) => ({
   flexRow: {
     display: 'flex',
     flexDirection: 'row',
@@ -64,20 +59,18 @@ function Navbar() {
         px={0}
         pt={shrinkNavbar ? 16 : 24}
         className={classes.flexCol}
+        sx={{ justifyContent: 'space-between' }}
       >
-        <Box className={classes.flexRow} sx={{ width: '100%' }}>
-          <Box sx={{ width: '161px' }}>
-            <Link href="/">
-              <Box className={classes.link}>
-                <ShopLogo className={classes.hoverIcon} />
-                <Title order={3} ml={16}>
-                  Clay Shop
-                </Title>
-              </Box>
-            </Link>
-          </Box>
+        <Box
+          className={classes.flexRow}
+          sx={{ width: '100%', justifyContent: 'space-between' }}
+        >
+          <Logo />
           {!shrinkNavbar ? (
-            <Box className={classes.flexRow} sx={{ width: '161px' }}>
+            <Box
+              className={classes.flexRow}
+              sx={{ width: '161px', justifyContent: 'space-between' }}
+            >
               <Instagram className={classes.hoverIcon} />
               <Twitter className={classes.hoverIcon} />
               <Facebook className={classes.hoverIcon} />
@@ -89,17 +82,16 @@ function Navbar() {
                 {
                   width: '500px',
                   position: 'relative',
+                  justifyContent: 'space-between',
                   '& a': { color: 'black' },
                   '& a:first-child': {
-                    textDecoration: pathname === '/' ? 'line-through' : null,
+                    textDecoration: navbarLine('/', pathname),
                   },
                   '& a:nth-child(2)': {
-                    textDecoration:
-                      pathname === '/shop' ? 'line-through' : null,
+                    textDecoration: navbarLine('/shop', pathname),
                   },
                   '& a:last-child': {
-                    textDecoration:
-                      pathname === '/contact' ? 'line-through' : null,
+                    textDecoration: navbarLine('/contact', pathname),
                   },
                 } as Sx
               }
@@ -133,6 +125,7 @@ function Navbar() {
               sx={{
                 width: '500px',
                 position: 'relative',
+                justifyContent: 'space-between',
                 '& a': { color: 'black' },
               }}
             >
